@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="amarillo">#E2C731</color>
+    <color name="rojo">#E23131</color>
+    <color name="off_white">#F4FEFE</color>
+    <color name="black_bajti">#0F0F0F</color>
+    <color name="gray">#3A3838</color>
+    <color name="cafe">#B18A6B</color>
+    <color name="morado">#673AB7</color>
+
+
+</resources>

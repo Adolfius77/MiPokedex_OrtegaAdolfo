@@ -1,0 +1,40 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="250dp"
+    android:height="250dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Relleno rojo superior (calculado para bordear el centro) -->
+    <path
+        android:fillColor="#E3350D"
+        android:pathData="M 10 50 A 40 40 0 0 1 90 50 L 65 50 A 15 15 0 0 0 35 50 Z" />
+
+    <!-- Círculo exterior (Borde oscuro) -->
+    <path
+        android:strokeColor="#2C2C2C"
+        android:strokeWidth="5"
+        android:fillColor="#00000000"
+        android:pathData="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" />
+
+    <!-- Línea horizontal izquierda -->
+    <path
+        android:strokeColor="#2C2C2C"
+        android:strokeWidth="5"
+        android:strokeLineCap="square"
+        android:pathData="M 10 50 L 35 50" />
+
+    <!-- Línea horizontal derecha -->
+    <path
+        android:strokeColor="#2C2C2C"
+        android:strokeWidth="5"
+        android:strokeLineCap="square"
+        android:pathData="M 65 50 L 90 50" />
+
+    <!-- Círculo central interior (Borde oscuro, centro transparente) -->
+    <path
+        android:strokeColor="#2C2C2C"
+        android:strokeWidth="5"
+        android:fillColor="#00000000"
+        android:pathData="M 50,50 m -15,0 a 15,15 0 1,1 30,0 a 15,15 0 1,1 -30,0" />
+
+</vector>
