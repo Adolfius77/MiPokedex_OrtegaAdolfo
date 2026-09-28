@@ -1,5 +1,9 @@
 package ortega.adolfo.mipokedex_ortegaadolfo.pokemones
 
+import androidx.annotation.DrawableRes
+import androidx.compose.runtime.Immutable
+
+@Immutable
 data class Pokemon(
     val nombre: String,
     val Altura: Double,
@@ -7,6 +11,6 @@ data class Pokemon(
     val Peso: Int,
     val descripcion: String,
     val numPokedex: String,
-    val tipo: String,
-    val imgId: String
+    val tipo: TipoPokemon,
+    @DrawableRes val imgId: Int
 )

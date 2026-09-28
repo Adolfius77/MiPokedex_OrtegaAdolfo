@@ -3,5 +3,6 @@
     <string name="altura">Altura</string>
     <string name="peso">Peso</string>
     <string name="habilidad">Habilidad</string>
+    <string name="title_activity_pokdex_compose">PokdexCompose</string>
 
 </resources>
