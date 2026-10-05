@@ -2,6 +2,7 @@ package ortega.adolfo.mipokedex_ortegaadolfo.pokemones
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Immutable
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.utilities.TipoPokemon
 
 @Immutable
 data class Pokemon(

@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen
+package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.TipoPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.utilities.TipoPokemon
 
 @Composable
 fun TipoChip(tipo: TipoPokemon,modifier: Modifier = Modifier){

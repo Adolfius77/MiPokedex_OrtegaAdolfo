@@ -1,5 +1,6 @@
 package ortega.adolfo.mipokedex_ortegaadolfo.pokemones
 
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.utilities.TipoPokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.R
 
 object PokemonRepositorio {

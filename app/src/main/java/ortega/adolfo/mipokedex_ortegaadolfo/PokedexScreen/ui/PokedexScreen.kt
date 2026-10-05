@@ -11,9 +11,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.EncabezadoPokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.NavegacionPokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.TarjetaInfo
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes.EncabezadoPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes.NavegacionPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes.TarjetaInfo
 import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.Pokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.Amarillo

@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.pokemones
+package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.utilities
 
 import androidx.compose.ui.graphics.Color
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.Amarillo

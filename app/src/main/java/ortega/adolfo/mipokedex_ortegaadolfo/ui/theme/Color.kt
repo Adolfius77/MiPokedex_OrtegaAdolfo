@@ -7,13 +7,33 @@ import androidx.compose.ui.graphics.Color
 
 val Amarillo = Color(0xFFE2C731)
 val Rojo = Color(0xFFE23131)
-val OffWhite = Color(0xFFF4FEFE)
+val OffWhite = Color(0xFFFAFAFA)
 val BlackBajti = Color(0xFF0F0F0F)
 val Gris = Color(0xFF3A3838)
 val Cafe = Color(0xFFB18A6B)
 val Morado = Color(0xFF673AB7)
 val Verde = Color(0xFF4E8A3E)
 val Green = Color(0xFF81CA85)
+
+val DarkGray = Color(0xFF1F1F1F)
+//typeColors
+val Electric = Color(0xFFFFEB3B)
+val Grass = Color(0xFF43A047)
+val Fire = Color(0xFFE74440)
+val Water = Color(0xFF00ACC1)
+val Normal = Color(0xFF5D5631)
+val Bug = Color(0xFF7CB342)
+val Poison = Color(0xFF8E24AA)
+val Ground = Color(0xFF983D21)
+val Rock = Color(0xFF424241)
+val Flying = Color(0xFF71A9D7)
+val Fight = Color(0xFFFB8C00)
+val Psych = Color(0xFFE86D95)
+val Ghost = Color(0xFF5E35B1)
+val Dragon = Color(0xFF3949AB)
+val Dark = Color(0xFF131310)
+val Ice = Color(0xFF9FA8DA)
+val Fairy = Color(0xFFEF9A9A)
 
 private val EsquemaPokedex = lightColorScheme(
     primary = Rojo, secondary = Amarillo, background = Amarillo,
