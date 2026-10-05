@@ -12,5 +12,6 @@ data class Pokemon(
     val descripcion: String,
     val numPokedex: String,
     val tipo: TipoPokemon,
-    @DrawableRes val imgId: Int
+    @DrawableRes val imgId: Int,
+    val favorite: Boolean
 )

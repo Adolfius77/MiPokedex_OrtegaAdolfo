@@ -13,6 +13,7 @@ val Gris = Color(0xFF3A3838)
 val Cafe = Color(0xFFB18A6B)
 val Morado = Color(0xFF673AB7)
 val Verde = Color(0xFF4E8A3E)
+val Green = Color(0xFF81CA85)
 
 private val EsquemaPokedex = lightColorScheme(
     primary = Rojo, secondary = Amarillo, background = Amarillo,
