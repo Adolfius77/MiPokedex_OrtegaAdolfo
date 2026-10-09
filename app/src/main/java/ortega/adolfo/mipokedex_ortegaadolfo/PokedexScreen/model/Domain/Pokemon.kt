@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.pokemones
+package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Immutable

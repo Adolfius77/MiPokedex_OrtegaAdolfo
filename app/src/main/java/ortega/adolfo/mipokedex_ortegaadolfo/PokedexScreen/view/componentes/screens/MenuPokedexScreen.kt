@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.screens
+package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,14 +13,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.ui.FavoritesRow
 import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.ui.PokedexGrid
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
 @Composable
 fun MenuPokedexScreen(
     innerPadding: PaddingValues = PaddingValues(),
-    pokemonList: List<Pokemon> = PokemonRepositorio.pokemones
+    pokemonList: List<Pokemon> = PokemonRepositorio.pokemones,
+    onPokemonClick: (Pokemon) -> Unit = {}
 ) {
     val favoriteList = pokemonList.filter { it.favorite }.ifEmpty { pokemonList.take(2) }
 
@@ -36,7 +37,7 @@ fun MenuPokedexScreen(
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 8.dp)
         )
-        FavoritesRow(favoriteList = favoriteList)
+        FavoritesRow(favoriteList = favoriteList, onPokemonClick = onPokemonClick)
 
         Text(
             text = "Todos mis pokemones",
@@ -47,7 +48,8 @@ fun MenuPokedexScreen(
 
         PokedexGrid(
             pokemonList = pokemonList,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            onPokemonClick = onPokemonClick
         )
     }
 }

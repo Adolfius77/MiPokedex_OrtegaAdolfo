@@ -1,5 +1,6 @@
 package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,11 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes.FavoritePokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes.PokemonCell
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes.PokemonRow
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.FavoritePokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.PokemonCell
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.PokemonRow
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
 @Composable
@@ -29,19 +30,30 @@ fun MenuPokedex(pokemonList: List<Pokemon>, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun FavoritesRow(favoriteList: List<Pokemon>, modifier: Modifier = Modifier) {
+fun FavoritesRow(
+    favoriteList: List<Pokemon>,
+    modifier: Modifier = Modifier,
+    onPokemonClick: (Pokemon) -> Unit = {}
+) {
     LazyRow(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(favoriteList) { pokemon ->
-            FavoritePokemon(pokemon = pokemon)
+            FavoritePokemon(
+                pokemon = pokemon,
+                modifier = Modifier.clickable { onPokemonClick(pokemon) }
+            )
         }
     }
 }
 
 @Composable
-fun PokedexGrid(pokemonList: List<Pokemon>, modifier: Modifier = Modifier) {
+fun PokedexGrid(
+    pokemonList: List<Pokemon>,
+    modifier: Modifier = Modifier,
+    onPokemonClick: (Pokemon) -> Unit = {}
+) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         contentPadding = PaddingValues(horizontal = 5.dp, vertical = 20.dp),
@@ -50,7 +62,10 @@ fun PokedexGrid(pokemonList: List<Pokemon>, modifier: Modifier = Modifier) {
         modifier = modifier
     ) {
         items(pokemonList) { pokemon ->
-            PokemonCell(pokemon = pokemon)
+            PokemonCell(
+                pokemon = pokemon,
+                modifier = Modifier.clickable { onPokemonClick(pokemon) }
+            )
         }
     }
 }

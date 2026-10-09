@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.componentes
+package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -22,8 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.pokemones.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.OffWhite
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
