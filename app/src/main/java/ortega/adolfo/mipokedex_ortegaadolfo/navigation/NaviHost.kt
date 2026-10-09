@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.navigation
+package ortega.adolfo.mipokedex_ortegaadolfo.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
@@ -8,9 +8,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.screens.MenuPokedexScreen
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.screens.PokemonDetailScreen
+
+import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.screens.MenuPokedexScreen
+import ortega.adolfo.mipokedex_ortegaadolfo.screens.PokemonDetailScreen
 
 @Composable
 fun MyApp(innerPadding: PaddingValues = PaddingValues()) {
@@ -35,7 +36,6 @@ fun MyApp(innerPadding: PaddingValues = PaddingValues()) {
                 navArgument(Routes.PokemonDetail.ARG_NUM_POKEDEX) { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            // Se lee el argumento del backStackEntry y se resuelve el Pokemon en el repositorio.
             val numPokedex = backStackEntry.arguments
                 ?.getString(Routes.PokemonDetail.ARG_NUM_POKEDEX)
             val pokemon = numPokedex?.let { PokemonRepositorio.getPokemonByNumber(it) }

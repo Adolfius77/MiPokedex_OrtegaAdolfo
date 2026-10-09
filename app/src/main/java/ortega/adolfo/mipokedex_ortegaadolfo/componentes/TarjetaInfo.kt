@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes
+package ortega.adolfo.mipokedex_ortegaadolfo.componentes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -19,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.mipokedex_ortegaadolfo.R
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
 
 private val FormaTarjeta = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)
 

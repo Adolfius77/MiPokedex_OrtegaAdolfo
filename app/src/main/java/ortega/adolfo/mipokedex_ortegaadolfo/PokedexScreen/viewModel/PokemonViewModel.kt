@@ -4,8 +4,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
 
 class PokemonViewModel: ViewModel() {
     var wildPokemon by mutableStateOf<Pokemon?>(null)

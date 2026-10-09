@@ -1,7 +1,7 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data
+package ortega.adolfo.mipokedex_ortegaadolfo.data
 
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.utilities.TipoPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.utilities.TipoPokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.R
 
 object PokemonRepositorio {
@@ -15,7 +15,7 @@ object PokemonRepositorio {
             "#0025",
             TipoPokemon.ELECTRICO,
             R.drawable.pikachu,
-            false
+            true
         ),
         Pokemon(
             "Lucario",
@@ -26,7 +26,7 @@ object PokemonRepositorio {
             "#0448",
             TipoPokemon.LUCHA_ACERO,
             R.drawable.lucario,
-            false
+            true
         ),
         Pokemon(
             "Raichu",
@@ -37,7 +37,7 @@ object PokemonRepositorio {
             "#0026",
             TipoPokemon.ELECTRICO,
             R.drawable.raichu,
-            false
+            true
         ),
         Pokemon(
             "Bulbasaur",
@@ -48,7 +48,7 @@ object PokemonRepositorio {
             "#0001",
             TipoPokemon.PLANTA_VENENO,
             R.drawable.bulbasor,
-            false
+            true
         ),
         Pokemon(
             "Arbok",
@@ -59,7 +59,7 @@ object PokemonRepositorio {
             "#0024",
             TipoPokemon.VENENO,
             R.drawable.arbok,
-            false
+            true
         )
     )
 

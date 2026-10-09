@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.screens
+package ortega.adolfo.mipokedex_ortegaadolfo.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

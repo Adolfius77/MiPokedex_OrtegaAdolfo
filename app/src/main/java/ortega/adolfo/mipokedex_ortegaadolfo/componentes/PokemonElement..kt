@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes
+package ortega.adolfo.mipokedex_ortegaadolfo.componentes
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -22,8 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.OffWhite
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
@@ -134,12 +134,26 @@ fun PokemonCell(pokemon: Pokemon, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Box {
+
             Image(
+
                 painter = painterResource(pokemon.imgId),
                 contentDescription = pokemon.nombre,
+
                 modifier = Modifier
                     .size(150.dp)
-                    .padding(10.dp)
+
+                    .border(border = BorderStroke(width = 5.dp,
+                        brush = Brush.sweepGradient(
+                            colors = listOf(
+                                colors.first,
+                                OffWhite,
+                                colors.first,
+                                OffWhite,
+                                colors.first
+                            )
+
+                        )))
             )
             NumberChip(
                 texto = pokemon.numPokedex.removePrefix("#").trimStart('0').ifEmpty { "0" },

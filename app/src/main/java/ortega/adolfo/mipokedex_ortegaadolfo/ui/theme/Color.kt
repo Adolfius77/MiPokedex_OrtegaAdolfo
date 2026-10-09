@@ -34,9 +34,13 @@ val Dragon = Color(0xFF3949AB)
 val Dark = Color(0xFF131310)
 val Ice = Color(0xFF9FA8DA)
 val Fairy = Color(0xFFEF9A9A)
+val LigtGreen = Color(0xFFCCFFCE)
+val blue = Color(0xFF4D92D2)
+val lightBlue = Color(0xFFA5CEFD)
+
 
 private val EsquemaPokedex = lightColorScheme(
-    primary = Rojo, secondary = Amarillo, background = Amarillo,
+    primary = Rojo, secondary = Amarillo, background = OffWhite,
     surface = Color.White, onSurface = BlackBajti
 )
 

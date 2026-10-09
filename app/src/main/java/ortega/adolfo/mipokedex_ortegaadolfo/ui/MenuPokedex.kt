@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.ui
+package ortega.adolfo.mipokedex_ortegaadolfo.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,11 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.FavoritePokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.PokemonCell
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.PokemonRow
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.componentes.FavoritePokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.componentes.PokemonCell
+import ortega.adolfo.mipokedex_ortegaadolfo.componentes.PokemonRow
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
 @Composable

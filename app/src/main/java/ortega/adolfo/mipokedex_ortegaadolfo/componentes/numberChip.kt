@@ -1,6 +1,7 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes
+package ortega.adolfo.mipokedex_ortegaadolfo.componentes
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,7 +23,9 @@ import androidx.compose.ui.unit.sp
 fun NumberChip(
     texto: String,
     modifier: Modifier = Modifier,
-    colores: Pair<Color, Color>
+    colores: Pair<Color, Color>,
+    borderColor: Color = Color.Black,
+    borderWidth: androidx.compose.ui.unit.Dp = 1.dp
 ) {
     val (fondo, colorTexto) = colores
 
@@ -31,11 +35,13 @@ fun NumberChip(
         modifier = modifier
             .size(30.dp)
             .background(color = fondo, shape = CircleShape)
+            .border(width = borderWidth, color = borderColor, shape = CircleShape)
             .padding(5.dp)
     ) {
         Text(
             text = texto,
             fontSize = 12.sp,
+            textAlign = TextAlign.Center,
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.Black,
             color = colorTexto

@@ -1,8 +1,8 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain
+package ortega.adolfo.mipokedex_ortegaadolfo.Domain
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Immutable
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.utilities.TipoPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.utilities.TipoPokemon
 
 @Immutable
 data class Pokemon(

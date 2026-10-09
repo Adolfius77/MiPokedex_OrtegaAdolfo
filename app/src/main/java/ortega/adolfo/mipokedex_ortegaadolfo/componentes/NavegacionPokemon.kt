@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes
+package ortega.adolfo.mipokedex_ortegaadolfo.componentes
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.Gris
 
 @Composable

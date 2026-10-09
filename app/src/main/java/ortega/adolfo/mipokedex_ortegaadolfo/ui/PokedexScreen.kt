@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.ui
+package ortega.adolfo.mipokedex_ortegaadolfo.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -11,11 +11,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.EncabezadoPokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.NavegacionPokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.view.componentes.TarjetaInfo
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.model.Domain.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.componentes.EncabezadoPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.componentes.NavegacionPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.componentes.TarjetaInfo
+import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.Amarillo
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 

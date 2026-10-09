@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Scaffold
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.navigation.MyApp
+import ortega.adolfo.mipokedex_ortegaadolfo.navigation.MyApp
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
 class PokedexList : ComponentActivity() {
