@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -37,11 +38,12 @@ fun PokemonHuntScreen(
     ) {
         if (wild == null) {
             if (viewModel.gonePokemon) {
-                Text(text = "El pokemon se escapo...")
+                Text(text = "El pokemon se escapo padrin@")
             }
             Button(onClick = { viewModel.searchPokemon() }) {
                 Text(text = "Buscar pokemon en la hierva")
             }
+
         } else {
             Text(text = wild.nombre, style = MaterialTheme.typography.titleLarge)
             Image(
@@ -55,6 +57,12 @@ fun PokemonHuntScreen(
         }
 
         Text(text = "Capturados: ${viewModel.capturedPokemon.size}")
+
+        LazyColumn(Modifier.padding(horizontal = 19.dp)){
+            items(viewModel.capturedPokemon.size){
+                Text(text = viewModel.capturedPokemon[it].nombre)
+            }
+        }
     }
 }
 

@@ -12,6 +12,7 @@ import androidx.navigation.navArgument
 import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.screens.MenuPokedexScreen
 import ortega.adolfo.mipokedex_ortegaadolfo.screens.PokemonDetailScreen
+import ortega.adolfo.mipokedex_ortegaadolfo.screens.PokemonHuntScreen
 
 @Composable
 fun MyApp(innerPadding: PaddingValues = PaddingValues()) {
@@ -26,6 +27,9 @@ fun MyApp(innerPadding: PaddingValues = PaddingValues()) {
                 innerPadding = innerPadding,
                 onPokemonClick = { pokemon ->
                     navController.navigate(Routes.PokemonDetail.createRoute(pokemon.numPokedex))
+                },
+                onNavigateToHunt = {
+                    navController.navigate(Routes.PokemonHunt.route)
                 }
             )
         }
@@ -45,6 +49,10 @@ fun MyApp(innerPadding: PaddingValues = PaddingValues()) {
             } else {
                 PokemonDetailScreen(innerPadding = innerPadding, pokemon = pokemon)
             }
+        }
+
+        composable(Routes.PokemonHunt.route) {
+            PokemonHuntScreen(innerPadding = innerPadding)
         }
     }
 }
