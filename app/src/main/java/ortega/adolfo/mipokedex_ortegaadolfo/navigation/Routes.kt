@@ -1,21 +1,18 @@
 package ortega.adolfo.mipokedex_ortegaadolfo.navigation
 
-import android.net.Uri
 import kotlinx.serialization.Serializable
 
-sealed class Routes(val route: String) {
+sealed interface Routes {
 
     @Serializable
-    object MenuPokedex : Routes("menu_pokedex")
+    data object Login : Routes
 
+    @Serializable
+    data object MenuPokedex : Routes
 
-    object PokemonDetail : Routes("pokemon_detail/{numPokedex}") {
-        const val ARG_NUM_POKEDEX = "numPokedex"
+    @Serializable
+    data class PokemonDetail(val numPokedex: String) : Routes
 
-        fun createRoute(numPokedex: String) = "pokemon_detail/${Uri.encode(numPokedex)}"
-
-
-    }
-
-    object PokemonHunt : Routes("pokemon_hunt")
+    @Serializable
+    data object PokemonHunt : Routes
 }

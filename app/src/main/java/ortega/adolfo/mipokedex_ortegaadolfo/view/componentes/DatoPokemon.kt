@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.componentes
+package ortega.adolfo.mipokedex_ortegaadolfo.view.componentes
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

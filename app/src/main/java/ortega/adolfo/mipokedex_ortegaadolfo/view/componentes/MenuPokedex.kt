@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.ui
+package ortega.adolfo.mipokedex_ortegaadolfo.view.componentes
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,18 +13,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ortega.adolfo.mipokedex_ortegaadolfo.componentes.FavoritePokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.componentes.PokemonCell
-import ortega.adolfo.mipokedex_ortegaadolfo.componentes.PokemonRow
-import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.view.componentes.FavoritePokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.view.componentes.PokemonCell
+import ortega.adolfo.mipokedex_ortegaadolfo.view.componentes.PokemonRow
+import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.model.data.PokemonRepositorio
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
 @Composable
-fun MenuPokedex(pokemonList: List<Pokemon>, modifier: Modifier = Modifier) {
+fun MenuPokedex(
+    pokemonList: List<Pokemon>,
+    modifier: Modifier = Modifier,
+    onPokemonClick: (Pokemon) -> Unit = {}
+) {
     LazyColumn(modifier = modifier) {
         items(pokemonList) { pokemon ->
-            PokemonRow(pokemon)
+            PokemonRow(
+                pokemon = pokemon,
+                modifier = Modifier.clickable { onPokemonClick(pokemon) }
+            )
         }
     }
 }

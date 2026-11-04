@@ -1,6 +1,6 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.data
+package ortega.adolfo.mipokedex_ortegaadolfo.model.data
 
-import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.Pokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.utilities.TipoPokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.R
 

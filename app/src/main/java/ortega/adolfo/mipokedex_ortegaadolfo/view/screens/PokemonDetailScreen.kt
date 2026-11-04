@@ -1,24 +1,42 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.screens
+package ortega.adolfo.mipokedex_ortegaadolfo.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import ortega.adolfo.mipokedex_ortegaadolfo.Domain.Pokemon
-import ortega.adolfo.mipokedex_ortegaadolfo.data.PokemonRepositorio
+import androidx.lifecycle.viewmodel.compose.viewModel
+import ortega.adolfo.mipokedex_ortegaadolfo.model.data.PokemonRepositorio
+import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.viewmodel.PokemonDetailViewModel
 
 @Composable
 fun PokemonDetailScreen(
+    onPokemonNotFound: () -> Unit,
     innerPadding: PaddingValues = PaddingValues(),
-    pokemon: Pokemon = PokemonRepositorio.pokemones.first()
+    viewModel: PokemonDetailViewModel = viewModel()
+) {
+    val pokemon = viewModel.pokemon
+
+    if (pokemon == null) {
+        LaunchedEffect(Unit) { onPokemonNotFound() }
+    } else {
+        PokemonDetailContent(pokemon = pokemon, innerPadding = innerPadding)
+    }
+}
+
+@Composable
+fun PokemonDetailContent(
+    pokemon: Pokemon,
+    innerPadding: PaddingValues = PaddingValues()
 ) {
     Column(
         modifier = Modifier
@@ -41,5 +59,5 @@ fun PokemonDetailScreen(
 @Preview(showBackground = true)
 @Composable
 fun pokemonmDetailScreen() {
-    PokemonDetailScreen()
+    PokemonDetailContent(pokemon = PokemonRepositorio.pokemones.first())
 }

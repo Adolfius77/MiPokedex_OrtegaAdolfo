@@ -1,4 +1,4 @@
-package ortega.adolfo.mipokedex_ortegaadolfo.screens
+package ortega.adolfo.mipokedex_ortegaadolfo.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import ortega.adolfo.mipokedex_ortegaadolfo.PokedexScreen.viewModel.PokemonViewModel
+import ortega.adolfo.mipokedex_ortegaadolfo.viewmodel.PokemonViewModel
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
 
 @Composable
