@@ -7,13 +7,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import ortega.adolfo.mipokedex_ortegaadolfo.model.data.CompanionDataStore
 import ortega.adolfo.mipokedex_ortegaadolfo.model.data.Users
+import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.Pokemon
 
-class UserViewModel(users: Users) : ViewModel() {
-
-    val users: Users = users
+class UserViewModel(
+    val users: Users,
+    private val companionDataStore: CompanionDataStore
+) : ViewModel() {
 
     var email by mutableStateOf("")
         private set
@@ -26,8 +34,21 @@ class UserViewModel(users: Users) : ViewModel() {
     var errorDescription by mutableStateOf("")
         private set
 
+    val pokemonCompanion: StateFlow<Pokemon?> = companionDataStore.pokemonFlow
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = null
+        )
+
     fun onEmailChange(newEmail: String) {
         email = newEmail
+    }
+
+    fun saveCompanion(pokemon: Pokemon) {
+        viewModelScope.launch {
+            companionDataStore.saveCompanion(pokemon)
+        }
     }
 
     fun login(mail: String, password: String) {
@@ -57,7 +78,10 @@ class UserViewModel(users: Users) : ViewModel() {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application = checkNotNull(this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
-                UserViewModel(Users(application))
+                UserViewModel(
+                    users = Users(application),
+                    companionDataStore = CompanionDataStore(application)
+                )
             }
         }
     }

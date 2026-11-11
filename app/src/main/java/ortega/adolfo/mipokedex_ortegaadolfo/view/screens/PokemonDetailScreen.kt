@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,14 +30,19 @@ fun PokemonDetailScreen(
     if (pokemon == null) {
         LaunchedEffect(Unit) { onPokemonNotFound() }
     } else {
-        PokemonDetailContent(pokemon = pokemon, innerPadding = innerPadding)
+        PokemonDetailContent(
+            pokemon = pokemon,
+            innerPadding = innerPadding,
+            onSaveCompanion = { viewModel.saveCompanion(it) }
+        )
     }
 }
 
 @Composable
 fun PokemonDetailContent(
     pokemon: Pokemon,
-    innerPadding: PaddingValues = PaddingValues()
+    innerPadding: PaddingValues = PaddingValues(),
+    onSaveCompanion: (Pokemon) -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -53,6 +59,9 @@ fun PokemonDetailContent(
             painter = painterResource(pokemon.imgId),
             contentDescription = "${pokemon.nombre} image"
         )
+        Button(onClick = { onSaveCompanion(pokemon) }) {
+            Text("Seleccionar como compañero")
+        }
     }
 }
 
