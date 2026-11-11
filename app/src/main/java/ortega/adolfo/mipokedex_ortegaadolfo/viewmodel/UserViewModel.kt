@@ -16,7 +16,10 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import ortega.adolfo.mipokedex_ortegaadolfo.model.data.CompanionDataStore
 import ortega.adolfo.mipokedex_ortegaadolfo.model.data.Users
+import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.CompanionData
 import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.Pokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.model.preferences.USER
+import ortega.adolfo.mipokedex_ortegaadolfo.model.preferences.USERNAME
 
 class UserViewModel(
     val users: Users,
@@ -34,11 +37,17 @@ class UserViewModel(
     var errorDescription by mutableStateOf("")
         private set
 
-    val pokemonCompanion: StateFlow<Pokemon?> = companionDataStore.pokemonFlow
+    val userEmail: String
+        get() = users.shared.getString(USER, "") ?: ""
+
+    val userName: String
+        get() = users.shared.getString(USERNAME, "") ?: ""
+
+    val companion: StateFlow<CompanionData> = companionDataStore.companionFlow
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
-            initialValue = null
+            initialValue = CompanionData()
         )
 
     fun onEmailChange(newEmail: String) {

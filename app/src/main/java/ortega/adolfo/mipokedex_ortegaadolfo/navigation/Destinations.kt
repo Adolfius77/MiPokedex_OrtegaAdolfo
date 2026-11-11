@@ -7,6 +7,7 @@ import ortega.adolfo.mipokedex_ortegaadolfo.view.screens.LoginScreen
 import ortega.adolfo.mipokedex_ortegaadolfo.view.screens.MenuPokedexScreen
 import ortega.adolfo.mipokedex_ortegaadolfo.view.screens.PokemonDetailScreen
 import ortega.adolfo.mipokedex_ortegaadolfo.view.screens.PokemonHuntScreen
+import ortega.adolfo.mipokedex_ortegaadolfo.view.screens.ProfileScreen
 import ortega.adolfo.mipokedex_ortegaadolfo.viewmodel.UserViewModel
 
 
@@ -24,6 +25,7 @@ fun NavGraphBuilder.menuPokedexDestination(
     userViewModel: UserViewModel,
     onPokemonClick: (Pokemon) -> Unit,
     onNavigateToHunt: () -> Unit,
+    onNavigateToProfile: () -> Unit,
     onLogout: () -> Unit
 ) {
     composable<Routes.MenuPokedex> {
@@ -31,6 +33,7 @@ fun NavGraphBuilder.menuPokedexDestination(
             userViewModel = userViewModel,
             onPokemonClick = onPokemonClick,
             onNavigateToHunt = onNavigateToHunt,
+            onNavigateToProfile = onNavigateToProfile,
             onLogout = onLogout
         )
     }
@@ -47,3 +50,9 @@ fun NavGraphBuilder.pokemonHuntDestination() {
         PokemonHuntScreen()
     }
 }
+fun NavGraphBuilder.profileDestination(userViewModel: UserViewModel) {
+    composable<Routes.Profile> {
+        ProfileScreen(userViewModel = userViewModel)
+    }
+}
+

@@ -32,6 +32,7 @@ fun AppNavHost(
                 navController.navigate(Routes.PokemonDetail(pokemon.numPokedex))
             },
             onNavigateToHunt = { navController.navigate(Routes.PokemonHunt) },
+            onNavigateToProfile = { navController.navigate(Routes.Profile) },
             onLogout = {
                 navController.navigate(Routes.Login) {
                     popUpTo<Routes.MenuPokedex> { inclusive = true }
@@ -43,5 +44,6 @@ fun AppNavHost(
             onPokemonNotFound = { navController.popBackStack() }
         )
         pokemonHuntDestination()
+        profileDestination(userViewModel = userViewModel)
     }
 }

@@ -43,6 +43,7 @@ fun MenuPokedexScreen(
     userViewModel: UserViewModel,
     onPokemonClick: (Pokemon) -> Unit,
     onNavigateToHunt: () -> Unit,
+    onNavigateToProfile: () -> Unit,
     onLogout: () -> Unit,
     innerPadding: PaddingValues = PaddingValues(),
     menuViewModel: MenuPokedexViewModel = viewModel(factory = MenuPokedexViewModel.Factory)
@@ -54,6 +55,7 @@ fun MenuPokedexScreen(
         onDisplayChange = menuViewModel::onDisplayChange,
         onPokemonClick = onPokemonClick,
         onNavigateToHunt = onNavigateToHunt,
+        onNavigateToProfile = onNavigateToProfile,
         onLogout = {
             userViewModel.logout()
             onLogout()
@@ -70,6 +72,7 @@ fun MenuPokedexContent(
     onDisplayChange: (Boolean) -> Unit,
     onPokemonClick: (Pokemon) -> Unit,
     onNavigateToHunt: () -> Unit,
+    onNavigateToProfile: () -> Unit,
     onLogout: () -> Unit,
     innerPadding: PaddingValues = PaddingValues()
 ) {
@@ -93,8 +96,13 @@ fun MenuPokedexContent(
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-                OutlinedButton(onClick = onLogout) {
-                    Text(text = "Cerrar sesión")
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = onNavigateToProfile) {
+                        Text(text = "Perfil")
+                    }
+                    OutlinedButton(onClick = onLogout) {
+                        Text(text = "Cerrar sesión")
+                    }
                 }
             }
 
@@ -170,6 +178,7 @@ private fun MenuPokedexScreenPreview() {
             onDisplayChange = {},
             onPokemonClick = {},
             onNavigateToHunt = {},
+            onNavigateToProfile = {},
             onLogout = {}
         )
     }

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -18,20 +19,39 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import ortega.adolfo.mipokedex_ortegaadolfo.R
+import ortega.adolfo.mipokedex_ortegaadolfo.model.domain.Pokemon
 import ortega.adolfo.mipokedex_ortegaadolfo.ui.theme.PokedexTheme
+import ortega.adolfo.mipokedex_ortegaadolfo.utilities.TipoPokemon
+import ortega.adolfo.mipokedex_ortegaadolfo.viewmodel.UserViewModel
 
 @Composable
 fun ProfileScreen(
+    userViewModel: UserViewModel,
     modifier: Modifier = Modifier,
-    innerPadding: PaddingValues = PaddingValues(),
-    nombre: String = "Adolfo Ortega",
-    correo: String = "adolfo@gmail.com",
-    companero: String = "Pikachu",
-    nombrePokemon: String = "Pepe",
-    tiempoCompanero: String = "3 días",
-    imagenId: Int = R.drawable.ic_perfil,
-    pokemonImagenId: Int = R.drawable.pikachu
+    innerPadding: PaddingValues = PaddingValues()
+) {
+    val companion by userViewModel.companion.collectAsStateWithLifecycle()
+
+    ProfileContent(
+        nombre = userViewModel.userName,
+        correo = userViewModel.userEmail,
+        companionPokemon = companion.pokemon,
+        diasCompanero = companion.daysAsCompanion(),
+        modifier = modifier,
+        innerPadding = innerPadding
+    )
+}
+
+@Composable
+fun ProfileContent(
+    nombre: String,
+    correo: String,
+    companionPokemon: Pokemon?,
+    diasCompanero: Long,
+    modifier: Modifier = Modifier,
+    innerPadding: PaddingValues = PaddingValues()
 ) {
     Column(
         modifier = modifier
@@ -40,9 +60,7 @@ fun ProfileScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(36.dp))
 
         Text(
             text = "Nombre: $nombre",
@@ -61,36 +79,44 @@ fun ProfileScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Image(
-            painter = painterResource(id = pokemonImagenId),
-            contentDescription = "Foto del pokemon compañero",
-            modifier = Modifier.size(100.dp)
-        )
+        if (companionPokemon == null) {
+            Text(
+                text = "Aún no tienes un compañero",
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center
+            )
+        } else {
+            Image(
+                painter = painterResource(id = companionPokemon.imgId),
+                contentDescription = "Foto del pokemon compañero",
+                modifier = Modifier.size(100.dp)
+            )
 
-        Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-        Text(
-            text = "Compañero: $companero",
-            style = MaterialTheme.typography.bodyLarge,
-            fontWeight = FontWeight.SemiBold,
-            textAlign = TextAlign.Center
-        )
+            Text(
+                text = "Compañero: ${companionPokemon.nombre}",
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center
+            )
 
-        Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-        Text(
-            text = "Nombre del pokémon: $nombrePokemon",
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center
-        )
+            Text(
+                text = textoDias(diasCompanero),
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Text(
-            text = "Tiempo de compañero: $tiempoCompanero",
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center
-        )
+private fun textoDias(dias: Long): String {
+    return when (dias) {
+        0L -> "Es tu compañero desde hoy"
+        1L -> "Es tu compañero desde hace 1 día"
+        else -> "Es tu compañero desde hace $dias días"
     }
 }
 
@@ -98,6 +124,21 @@ fun ProfileScreen(
 @Composable
 fun ProfileScreenPreview() {
     PokedexTheme {
-        ProfileScreen()
+        ProfileContent(
+            nombre = "Ash Ketchum",
+            correo = "ash@pokemon.com",
+            companionPokemon = Pokemon(
+                nombre = "Pikachu",
+                Altura = 0.4,
+                Habilidad = "Electricidad Estática",
+                Peso = 6,
+                descripcion = "Pokémon eléctrico de ejemplo",
+                numPokedex = "#0025",
+                tipo = TipoPokemon.ELECTRICO,
+                imgId = R.drawable.pikachu,
+                favorite = true
+            ),
+            diasCompanero = 3
+        )
     }
 }
