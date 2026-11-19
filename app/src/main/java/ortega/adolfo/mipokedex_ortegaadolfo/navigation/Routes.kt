@@ -15,7 +15,10 @@ sealed interface Routes {
 
     @Serializable
     data object PokemonHunt : Routes
+
     @Serializable
     data object Profile : Routes
 
+    @Serializable
+    data object AddPokemon : Routes
 }

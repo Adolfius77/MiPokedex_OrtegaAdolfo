@@ -44,6 +44,7 @@ fun MenuPokedexScreen(
     onPokemonClick: (Pokemon) -> Unit,
     onNavigateToHunt: () -> Unit,
     onNavigateToProfile: () -> Unit,
+    onNavigateToAddPokemon: () -> Unit = {},
     onLogout: () -> Unit,
     innerPadding: PaddingValues = PaddingValues(),
     menuViewModel: MenuPokedexViewModel = viewModel(factory = MenuPokedexViewModel.Factory)
@@ -56,6 +57,7 @@ fun MenuPokedexScreen(
         onPokemonClick = onPokemonClick,
         onNavigateToHunt = onNavigateToHunt,
         onNavigateToProfile = onNavigateToProfile,
+        onNavigateToAddPokemon = onNavigateToAddPokemon,
         onLogout = {
             userViewModel.logout()
             onLogout()
@@ -73,6 +75,7 @@ fun MenuPokedexContent(
     onPokemonClick: (Pokemon) -> Unit,
     onNavigateToHunt: () -> Unit,
     onNavigateToProfile: () -> Unit,
+    onNavigateToAddPokemon: () -> Unit = {},
     onLogout: () -> Unit,
     innerPadding: PaddingValues = PaddingValues()
 ) {
@@ -97,6 +100,9 @@ fun MenuPokedexContent(
                     fontWeight = FontWeight.Bold
                 )
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = onNavigateToAddPokemon) {
+                        Text(text = "Agregar")
+                    }
                     OutlinedButton(onClick = onNavigateToProfile) {
                         Text(text = "Perfil")
                     }
@@ -179,6 +185,7 @@ private fun MenuPokedexScreenPreview() {
             onPokemonClick = {},
             onNavigateToHunt = {},
             onNavigateToProfile = {},
+            onNavigateToAddPokemon = {},
             onLogout = {}
         )
     }
